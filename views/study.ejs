@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 要提交文件必须要配置 enctype="multipart/form-data" -->
+    <h2>提交单个文件</h2>
+    <form action="study4/doAdd" method="post" enctype="multipart/form-data">
+        <input type="text" name="name">
+        <br><br>
+        <input type="text" name="keyborder">
+        <br><br>
+        <input type="file" name="pic" />
+        <br><br>
+        <input type="submit" value="提交">
+    </form>
+
+    <br><hr><br>
+
+    <h2>提交多个文件</h2>
+    <form action="study4/doAdds" method="post" enctype="multipart/form-data">
+        <input type="text" name="name">
+        <br><br>
+        <input type="text" name="keyborder">
+        <br><br>
+        <input type="file" name="pic" />
+        <br><br>
+        <input type="file" name="pic" />
+        <br><br>
+        <input type="submit" value="提交">
+    </form>
+</body>
+</html>
