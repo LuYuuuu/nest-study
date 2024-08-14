@@ -6,6 +6,7 @@ import { join } from 'path';
 import * as cookieParser from 'cookie-parser'
 // 引入express-session
 import * as session from 'express-session'
+import { Study8Guard } from './study8/study8.guard';
 
 async function bootstrap() {
   // 引入Express
@@ -32,7 +33,7 @@ async function bootstrap() {
   // 配置session中间件
   app.use(session({
     secret: '987292513',  // 秘钥
-    name: 'sessionId',  //返回客户端的key 的名称，默认为sonnect.sid
+    name: 'sessionId',  // 返回客户端的key 的名称，默认为sonnect.sid
     resave: false,  // 是否每次请求都重新保存session
     saveUninitialized: false,  // 是否每次请求都重新生成session
     rolling: true,  // 是否每次响应都重新设置session的过期时间(重新刷新cookie)
@@ -40,6 +41,9 @@ async function bootstrap() {
       maxAge: 1000 * 60 * 60 * 24 * 7  // 设置session过期时间
     }
   }))
+
+  // 配置全局守卫
+  app.useGlobalGuards(new Study8Guard())
 
   await app.listen(3000);
 }
